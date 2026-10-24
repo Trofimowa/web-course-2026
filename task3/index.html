@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="planner-card">
+        <header class="header">
+            <div class="title-badge">
+                <h1>To-Do List 🌸</h1>
+            </div>
+        </header>
+
+        <form id="todo-form" class="todo-form">
+            <input type="text" id="todo-input" placeholder="Введите новую задачу..." />
+            <button type="submit" id="add-btn">Добавить</button>
+        </form>
+
+        <div id="error-message" class="error-message hidden">Пожалуйста, введите текст задачи!</div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="active">Активные</button>
+            <button class="filter-btn" data-filter="completed">Завершённые</button>
+        </div>
+
+        <div class="counters">
+            <span>Осталось: <strong id="active-count">0</strong></span>
+            <span>Выполнено: <strong id="completed-count">0</strong></span>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <div class="quote-card">
+            Small steps make big progress ♡
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
