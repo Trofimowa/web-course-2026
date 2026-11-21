@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="игра Быки и коровы">
+    <title>Быки и коровы 🐮</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="game">
+
+        <!-- Заголовок игры -->
+        <header class="game__header">
+
+            <h1>
+                Быки <span>&</span> коровы
+                <span class="title-cow">🐮</span>
+            </h1>
+
+            <p class="subtitle">
+                Найди секретное число и получи победу!
+            </p>
+        </header>
+
+        <!-- Правила игры -->
+        <section class="panel" aria-labelledby="rules-title">
+
+            <h2 id="rules-title">🌼 Как играть?</h2>
+
+            <div class="rules">
+
+                <p>
+                    <span class="rule-mark bull">Б</span>
+                    <span>
+                        <strong>Бык</strong> — цифра угадана и стоит на своём месте.
+                    </span>
+                </p>
+
+                <p>
+                    <span class="rule-mark cow">К</span>
+                    <span>
+                        <strong>Корова</strong> — цифра есть в числе, но находится в другом месте.
+                    </span>
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Игровое поле -->
+        <section class="panel play-panel" aria-labelledby="attempt-title">
+
+            <div class="section-heading">
+                <h2 id="attempt-title">🎯 Твоя попытка</h2>
+
+                <span class="attempt-counter">
+                    Попыток:
+                    <strong id="attempt-count">0</strong>
+                </span>
+            </div>
+
+            <form id="guess-form" novalidate>
+
+                <label for="guess-input">
+                    Введи четыре разные цифры:
+                </label>
+
+                <div class="input-row">
+
+                    <input
+                        id="guess-input"
+                        name="guess"
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        placeholder="Например, 1234"
+                        aria-describedby="input-message"
+                    >
+
+                    <button
+                        class="button button--primary"
+                        type="submit"
+                    >
+                        Проверить ✨
+                    </button>
+
+                </div>
+
+                <p
+                    id="input-message"
+                    class="message"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Цифры не должны повторяться.
+                </p>
+
+            </form>
+
+            <div
+                id="game-status"
+                class="game-status"
+                role="status"
+                aria-live="polite"
+            >
+                <span class="status-dot"></span>
+                Игра началась. Удачи!
+            </div>
+
+        </section>
+
+        <!-- История попыток -->
+        <section class="panel history-panel" aria-labelledby="history-title">
+
+            <div class="section-heading">
+
+                <h2 id="history-title">📖 История попыток</h2>
+
+                <span class="history-count" id="history-count">
+                    0 записей
+                </span>
+
+            </div>
+
+            <ol id="history-list" class="history-list">
+
+                <li class="empty-history">
+                    Здесь появятся твои попытки 🐄
+                </li>
+
+            </ol>
+
+        </section>
+
+        <!-- Новая игра -->
+        <button
+            id="new-game-button"
+            class="button button--secondary"
+            type="button"
+        >
+            <span aria-hidden="true">↻</span>
+            Начать новую игру
+        </button>
+
+    </main>
+
+</body>
+</html>

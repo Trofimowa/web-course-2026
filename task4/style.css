@@ -1,0 +1,578 @@
+
+/* Мягкие округлые шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+
+/* Основные цвета */
+:root {
+    --ink: #554b42;
+    --muted: #887c70;
+
+    --cream: #fffaf0;
+    --cream-deep: #f7edda;
+
+    --pink: #f4a6a6;
+    --pink-dark: #dc8588;
+
+    --mint: #a8cdb8;
+    --mint-dark: #6f9f85;
+
+    --brown: #92765e;
+
+    --line: rgba(126, 103, 78, 0.17);
+
+    --shadow: 0 12px 32px rgba(81, 83, 62, 0.15);
+}
+
+
+/* Сброс стандартных отступов */
+* {
+    box-sizing: border-box;
+}
+
+
+/* Фон страницы */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 42px 18px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--ink);
+
+    font-family: 'Nunito', sans-serif;
+
+    background-color: #c6d8c9;
+
+    /* Картинка с коровками */
+    background-image:
+        linear-gradient(
+            rgba(236, 241, 222, 0.32),
+            rgba(236, 241, 222, 0.32)
+        ),
+        url("cows.jpeg");
+
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* Основной контейнер */
+.game {
+    width: min(100%, 610px);
+}
+
+
+/* Заголовок */
+.game__header {
+    margin-bottom: 22px;
+    padding: 22px 20px 19px;
+
+    border: 2px solid rgba(255, 255, 255, 0.78);
+    border-radius: 28px;
+
+    background: rgba(255, 250, 240, 0.93);
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+
+    backdrop-filter: blur(7px);
+}
+
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+
+h1 {
+    margin-bottom: 8px;
+
+    color: #705b4b;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(36px, 8vw, 52px);
+    font-weight: 700;
+
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+h1 span:not(.title-cow) {
+    color: var(--pink-dark);
+}
+
+
+h1 .title-cow {
+    display: inline-block;
+
+    font-size: 0.62em;
+    vertical-align: 0.08em;
+
+    transform: rotate(8deg);
+}
+
+
+.subtitle {
+    margin-bottom: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* Карточки */
+.panel {
+    margin-bottom: 14px;
+    padding: 21px 22px;
+
+    border: 2px solid rgba(255, 255, 255, 0.82);
+    border-radius: 23px;
+
+    background: rgba(255, 250, 240, 0.94);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(8px);
+}
+
+
+h2 {
+    margin-bottom: 14px;
+
+    color: #705b4b;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+/* Правила игры */
+.rules {
+    display: grid;
+    gap: 10px;
+}
+
+
+.rules p {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+
+.rules strong {
+    color: var(--ink);
+    font-weight: 900;
+}
+
+
+.rule-mark {
+    width: 29px;
+    height: 29px;
+    flex: 0 0 29px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    box-shadow: inset 0 -2px 0 rgba(80, 60, 40, 0.08);
+}
+
+
+.bull {
+    color: #426c58;
+    background: #c8e3d1;
+}
+
+
+.cow {
+    color: #965d64;
+    background: #f8d0cf;
+}
+
+
+/* Заголовки секций */
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+
+.section-heading h2 {
+    margin-bottom: 14px;
+}
+
+
+.attempt-counter,
+.history-count {
+    margin-bottom: 14px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+.attempt-counter strong {
+    color: var(--mint-dark);
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+}
+
+
+/* Поле ввода */
+label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+.input-row {
+    display: flex;
+    gap: 9px;
+}
+
+
+input {
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 15px;
+
+    border: 2px solid #e7d9c5;
+    border-radius: 15px;
+
+    outline: none;
+
+    color: var(--ink);
+    background: #fffdf8;
+
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+
+    transition: 0.2s;
+}
+
+
+input::placeholder {
+    color: #b8aa98;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0;
+}
+
+
+input:focus {
+    border-color: var(--mint);
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 4px rgba(168, 205, 184, 0.23);
+}
+
+
+input:disabled {
+    opacity: 0.58;
+    cursor: not-allowed;
+}
+
+
+/* Кнопки */
+.button {
+    min-height: 47px;
+    padding: 0 19px;
+
+    border: 0;
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: transform 0.16s, filter 0.16s, box-shadow 0.16s;
+}
+
+
+.button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+}
+
+
+.button:active:not(:disabled) {
+    transform: translateY(2px);
+}
+
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.48;
+}
+
+
+/* Кнопка проверки */
+.button--primary {
+    flex: 0 0 auto;
+
+    color: #fffdf8;
+    background: var(--pink-dark);
+
+    box-shadow:
+        0 4px 0 #bd7177,
+        0 7px 14px rgba(189, 113, 119, 0.17);
+}
+
+
+.button--primary:hover:not(:disabled) {
+    box-shadow:
+        0 5px 0 #bd7177,
+        0 9px 16px rgba(189, 113, 119, 0.2);
+}
+
+
+/* Сообщения */
+.message {
+    min-height: 18px;
+    margin: 9px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.message.error {
+    color: #c45f68;
+}
+
+
+/* Статус игры */
+.game-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: 15px;
+    padding: 12px 14px;
+
+    border: 1px solid #d5e7d9;
+    border-radius: 14px;
+
+    color: #527d63;
+    background: #edf6e9;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+.game-status.won {
+    border-color: #a8cfb3;
+
+    background: #e0f2df;
+    color: #3f7656;
+}
+
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+
+    border-radius: 50%;
+
+    background: #80b994;
+
+    box-shadow: 0 0 0 4px rgba(128, 185, 148, 0.16);
+}
+
+
+/* История попыток */
+.history-panel {
+    margin-bottom: 17px;
+}
+
+
+.history-list {
+    display: grid;
+    gap: 8px;
+
+    max-height: 230px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-y: auto;
+
+    /* Плавная прокрутка */
+    scroll-behavior: smooth;
+
+    list-style: none;
+}
+
+
+.history-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    border: 1px solid #eee2d1;
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    font-size: 13px;
+}
+
+
+.history-list .empty-history {
+    justify-content: center;
+
+    color: #a39482;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    border-style: dashed;
+
+    font-weight: 700;
+}
+
+
+.guess-number {
+    color: #705b4b;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+}
+
+
+.result {
+    color: var(--muted);
+
+    text-align: right;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.result strong {
+    color: #669477;
+    font-weight: 900;
+}
+
+
+/* Кнопка новой игры */
+.button--secondary {
+    width: 100%;
+
+    color: #6c5b4d;
+
+    border: 2px solid rgba(255, 255, 255, 0.85);
+
+    background: rgba(255, 250, 240, 0.94);
+
+    box-shadow: var(--shadow);
+}
+
+
+.button--secondary:hover {
+    background: #fffdf8;
+}
+
+
+.button--secondary span {
+    margin-right: 6px;
+
+    color: var(--pink-dark);
+
+    font-size: 21px;
+    vertical-align: -1px;
+}
+
+
+/* Адаптация для телефонов */
+@media (max-width: 480px) {
+
+    body {
+        padding: 22px 12px;
+        background-attachment: scroll;
+    }
+
+    .game__header {
+        padding: 19px 14px 17px;
+        border-radius: 22px;
+    }
+
+    .panel {
+        padding: 18px;
+        border-radius: 19px;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    .button--primary {
+        width: 100%;
+    }
+
+    .history-list li {
+        align-items: flex-start;
+    }
+}
