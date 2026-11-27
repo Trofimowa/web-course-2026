@@ -1,0 +1,170 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+
+    font-family: 'Nunito', sans-serif;
+    color: #70202f;
+
+    background-image: url("back.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 38px;
+    font-weight: 900;
+    color: #800020;
+}
+
+header p {
+    margin-top: 5px;
+    color: #972032;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.search-container {
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 15px 20px;
+
+    border: 2px solid #972032;
+    border-radius: 16px;
+    outline: none;
+
+    background: #fffafa;
+    font-family: inherit;
+    font-size: 16px;
+    color: #70202f;
+
+    transition: 0.2s;
+}
+
+input::placeholder {
+    color: #b77b86;
+}
+
+input:focus {
+    border-color: #800020;
+    box-shadow: 0 0 10px rgba(128, 0, 32, 0.2);
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.post {
+    padding: 22px;
+    border-radius: 18px;
+
+    background: #fffafa;
+    border: 1px solid #e8c4cb;
+
+    box-shadow: 0 4px 12px rgba(128, 0, 32, 0.08);
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(128, 0, 32, 0.16);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.post-id {
+    color: #972032;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.author {
+    padding: 5px 12px;
+    border-radius: 12px;
+
+    background: #f3dce1;
+    color: #800020;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.post h2 {
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: 800;
+    color: #800020;
+    text-transform: capitalize;
+}
+
+.post p {
+    color: #85505b;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.message {
+    padding: 25px;
+    text-align: center;
+    color: #800020;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.error {
+    color: #a01835;
+    background: #f9e3e7;
+    border: 1px solid #e8b5bf;
+    border-radius: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .post {
+        padding: 17px;
+    }
+
+    .post h2 {
+        font-size: 17px;
+    }
+}
