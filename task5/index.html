@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="game">
+
+        <header class="game-header">
+            <h1>SIMON</h1>
+            <p>Повтори последовательность!</p>
+        </header>
+
+        <p>Уровень: <span id="level">0</span></p>
+
+        <section class="game-board">
+            <button class="color-button green" data-color="0" aria-label="Зелёная"></button>
+            <button class="color-button red" data-color="1" aria-label="Розовая"></button>
+            <button class="color-button yellow" data-color="2" aria-label="Жёлтая"></button>
+            <button class="color-button blue" data-color="3" aria-label="Синяя"></button>
+        </section>
+
+        <p id="message"></p>
+
+        <button id="start-button">СТАРТ</button>
+
+    </main>
+
+</body>
+</html>
